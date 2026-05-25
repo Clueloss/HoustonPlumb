@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { Link, useNavigate } from 'react-router-dom'
 import { Phone, Menu, X, Droplets } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
@@ -7,6 +8,7 @@ import { cn } from '@/lib/utils'
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const navigate = useNavigate()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,7 +37,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
-          <a href="/" className="flex items-center space-x-2 group">
+          <Link to="/" className="flex items-center space-x-2 group">
             <div className="bg-brand-600 p-2 rounded-lg group-hover:bg-brand-700 transition-colors">
               <Droplets className="h-6 w-6 text-white" />
             </div>
@@ -50,21 +52,21 @@ const Navbar = () => {
                 Elite Services
               </span>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
+                to={link.href}
                 className={cn(
                   "text-sm font-semibold transition-colors hover:text-brand-600",
                   link.important ? "text-red-600 hover:text-red-700" : "text-navy-900"
                 )}
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -78,7 +80,7 @@ const Navbar = () => {
               </div>
               <span className="font-bold text-sm">(713) 555-0123</span>
             </a>
-            <Button size="sm" className="bg-brand-600 hover:bg-brand-700">
+            <Button size="sm" className="bg-brand-600 hover:bg-brand-700" onClick={() => navigate('/contact')}>
               Get Free Estimate
             </Button>
           </div>
@@ -104,9 +106,9 @@ const Navbar = () => {
           >
             <div className="container mx-auto px-4 py-6 flex flex-col space-y-4">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
-                  href={link.href}
+                  to={link.href}
                   className={cn(
                     "text-lg font-semibold py-2 border-b border-gray-50",
                     link.important ? "text-red-600" : "text-navy-900"
@@ -114,7 +116,7 @@ const Navbar = () => {
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
               <div className="pt-4 flex flex-col space-y-4">
                 <a 
@@ -124,7 +126,10 @@ const Navbar = () => {
                   <Phone className="h-5 w-5 text-brand-600" />
                   <span className="font-bold">(713) 555-0123</span>
                 </a>
-                <Button className="w-full bg-brand-600">Get Free Estimate</Button>
+                <Button className="w-full bg-brand-600" onClick={() => {
+                  navigate('/contact')
+                  setIsMobileMenuOpen(false)
+                }}>Get Free Estimate</Button>
               </div>
             </div>
           </motion.div>

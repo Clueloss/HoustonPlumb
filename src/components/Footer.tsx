@@ -1,4 +1,5 @@
 import { Droplets, Mail, MapPin, Phone, Globe, MessageSquare, Info } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
@@ -9,14 +10,14 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand Column */}
           <div className="space-y-6">
-            <a href="/" className="flex items-center space-x-2">
+            <Link to="/" className="flex items-center space-x-2">
               <div className="bg-brand-600 p-2 rounded-lg">
                 <Droplets className="h-6 w-6 text-white" />
               </div>
               <span className="text-2xl font-bold tracking-tight">
                 Houston<span className="text-brand-400">Plumb</span>
               </span>
-            </a>
+            </Link>
             <p className="text-navy-200 leading-relaxed">
               Providing premium plumbing solutions to Houston residents for over 15 years. Professional, reliable, and always here for your emergencies.
             </p>
@@ -37,11 +38,11 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-bold mb-6">Quick Links</h4>
             <ul className="space-y-4">
-              <li><a href="/" className="text-navy-300 hover:text-brand-400 transition-colors">Home</a></li>
-              <li><a href="/services" className="text-navy-300 hover:text-brand-400 transition-colors">Our Services</a></li>
-              <li><a href="/about" className="text-navy-300 hover:text-brand-400 transition-colors">About Company</a></li>
-              <li><a href="/emergency" className="text-navy-300 hover:text-brand-400 transition-colors">Emergency Plumbing</a></li>
-              <li><a href="/contact" className="text-navy-300 hover:text-brand-400 transition-colors">Contact Us</a></li>
+              <li><Link to="/" className="text-navy-300 hover:text-brand-400 transition-colors">Home</Link></li>
+              <li><Link to="/services" className="text-navy-300 hover:text-brand-400 transition-colors">Our Services</Link></li>
+              <li><Link to="/about" className="text-navy-300 hover:text-brand-400 transition-colors">About Company</Link></li>
+              <li><Link to="/emergency" className="text-navy-300 hover:text-brand-400 transition-colors">Emergency Plumbing</Link></li>
+              <li><Link to="/contact" className="text-navy-300 hover:text-brand-400 transition-colors">Contact Us</Link></li>
             </ul>
           </div>
 
@@ -49,11 +50,11 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-bold mb-6">Our Services</h4>
             <ul className="space-y-4">
-              <li><a href="#" className="text-navy-300 hover:text-brand-400 transition-colors">Drain Cleaning</a></li>
-              <li><a href="#" className="text-navy-300 hover:text-brand-400 transition-colors">Water Heater Repair</a></li>
-              <li><a href="#" className="text-navy-300 hover:text-brand-400 transition-colors">Leak Detection</a></li>
-              <li><a href="#" className="text-navy-300 hover:text-brand-400 transition-colors">Pipe Replacement</a></li>
-              <li><a href="#" className="text-navy-300 hover:text-brand-400 transition-colors">Emergency Services</a></li>
+              <li><Link to="/services" className="text-navy-300 hover:text-brand-400 transition-colors">Drain Cleaning</Link></li>
+              <li><Link to="/services" className="text-navy-300 hover:text-brand-400 transition-colors">Water Heater Repair</Link></li>
+              <li><Link to="/services" className="text-navy-300 hover:text-brand-400 transition-colors">Leak Detection</Link></li>
+              <li><Link to="/services" className="text-navy-300 hover:text-brand-400 transition-colors">Pipe Replacement</Link></li>
+              <li><Link to="/emergency" className="text-navy-300 hover:text-brand-400 transition-colors">Emergency Services</Link></li>
             </ul>
           </div>
 

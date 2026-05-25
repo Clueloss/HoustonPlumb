@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 import { 
   CheckCircle, 
   Clock, 
@@ -28,6 +29,8 @@ const fadeIn = {
 }
 
 const Home = () => {
+  const navigate = useNavigate()
+
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
@@ -77,10 +80,10 @@ const Home = () => {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <Button size="lg" className="bg-brand-600 hover:bg-brand-700 text-lg">
+              <Button size="lg" className="bg-brand-600 hover:bg-brand-700 text-lg" onClick={() => navigate('/contact')}>
                 Book Service Now
               </Button>
-              <Button size="lg" variant="outline" className="text-lg border-2 border-brand-600 text-brand-600 hover:bg-brand-50">
+              <Button size="lg" variant="outline" className="text-lg border-2 border-brand-600 text-brand-600 hover:bg-brand-50" onClick={() => navigate('/services')}>
                 View All Services
               </Button>
             </motion.div>
@@ -173,9 +176,12 @@ const Home = () => {
                     </div>
                     <h3 className="text-xl font-bold text-navy-950 mb-3">{service.title}</h3>
                     <p className="text-navy-600 mb-6 text-sm leading-relaxed">{service.desc}</p>
-                    <a href="#" className="mt-auto inline-flex items-center text-brand-600 font-bold hover:underline">
+                    <button 
+                      onClick={() => navigate('/services')}
+                      className="mt-auto inline-flex items-center text-brand-600 font-bold hover:underline cursor-pointer"
+                    >
                       Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                    </a>
+                    </button>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -235,7 +241,12 @@ const Home = () => {
                   </li>
                 ))}
               </ul>
-              <Button className="bg-navy-900 hover:bg-navy-950 text-white px-8 h-14 rounded-full">Learn More About Us</Button>
+              <Button 
+                onClick={() => navigate('/about')}
+                className="bg-brand-600 hover:bg-brand-700 text-white px-8 h-14 rounded-full shadow-lg transition-all duration-300"
+              >
+                Learn More About Us
+              </Button>
             </motion.div>
           </div>
         </div>
