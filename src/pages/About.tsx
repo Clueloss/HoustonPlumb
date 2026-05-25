@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Award, CheckCircle, Heart, ShieldCheck, Users, Zap } from 'lucide-react'
+import { Award, Heart, ShieldCheck, Users, Zap } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 const AboutPage = () => {

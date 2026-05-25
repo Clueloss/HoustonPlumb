@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Phone, Clock, ShieldCheck, AlertTriangle, Droplets, Zap, CheckCircle } from 'lucide-react'
+import { Phone, Clock, ShieldCheck, AlertTriangle, Droplets, Zap } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 const EmergencyPage = () => {
